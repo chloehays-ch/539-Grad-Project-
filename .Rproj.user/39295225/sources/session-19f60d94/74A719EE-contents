@@ -1,0 +1,54 @@
+## LOAD NECESSARY PACKAGES FOR THIS DATA ANALYSIS ##
+library(tidyverse)
+install.packages("auk")
+library(auk)
+install.packages("rebird")
+library(rebird)
+library(dplyr)
+recent<-ebirdregion("US-RI")
+#necessary packages
+
+##BEGIN ANALYZING - RECENT - EBIRD DATA##
+
+#I had to obtain a key from the eBird website in order to acces the data, and then I had to filter the data for the state 
+#RI
+recent <- ebirdregion("US-RI", key = "e1ekkpr64q0j")
+#Show me a glimpse of the data
+head(recent)
+#shows me the graph 
+view(recent)
+#see what file I have loaded
+ls()
+#see the names of the columns to determine how I filter my data 
+names(recent)
+library(dplyr)
+#I filtered for sightings but because my data is recent nothing came up for this sight
+new_site_data <- recent %>%
+  filter(locId == "L393285")
+unique(site_data$comName)
+#this showed me all of the locations with recent observations 
+unique(recent$locId)
+
+library(dplyr)
+
+unique(site_data$comName)
+site_data %>%
+  count(comName, sort = TRUE)
+
+##BEGINNING FIRST SITE ANALYSIS##
+
+#view sites that have recent data I can work with 
+unique(recent$locId)
+
+#checking if site exists
+"L357310" %in% recent$locId
+
+#pull and analyze data from l357310 - Succotash Marsh, Washington RI
+site_data <- recent %>%
+  filter(locId == "L357310")
+
+site_data
+#if greater than 0 that means there is data I can work with
+nrow(site_data) #pulled up [1] 8 which is >0
+
+

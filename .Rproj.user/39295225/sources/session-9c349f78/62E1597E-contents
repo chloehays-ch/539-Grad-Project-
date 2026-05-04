@@ -1,0 +1,9 @@
+library(tidyverse)
+install.packages("auk")
+library(auk)
+install.packages("rebird")
+library(rebird)
+recent<-ebirdregion("US-RI")
+
+recent <- ebirdregion("US-RI", key = "e1ekkpr64q0j")
+head(recent)

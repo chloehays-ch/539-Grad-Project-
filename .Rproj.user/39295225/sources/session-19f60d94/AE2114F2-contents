@@ -1,0 +1,20 @@
+unique(recent$locId)
+#another urban site - The Monastery in Cumberland RI 
+site_data <- recent_ebird %>%
+  filter(locId == "L1458029")
+L1458029 <- site_data
+#ensure there's data for the site
+nrow(L1458029)
+#Check species observed
+unique(L1458029$comName)
+#count number of sightings
+L1458029 %>%
+  count(comName, sort = TRUE)
+#bar graph - scatterplot didn't look good 
+ggplot(L1458029, aes(x = comName, fill = comName)) +
+  geom_bar() +
+  theme_minimal() +
+  labs(x = "Species", y = "Number of Observations",
+       title = "Bird Sightings at L1458029 - The Monastery, Cumberland") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  guides(fill = "none")

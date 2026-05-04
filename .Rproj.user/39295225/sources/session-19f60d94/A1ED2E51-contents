@@ -1,0 +1,110 @@
+#establish a dataset with all of the sites I will be analyzing
+sites_data <- recent_ebird %>%
+  filter(locId %in% c("L1458029", "L13276170", "L166161", "L735002"))
+#count the total number of sightings per site
+site_summary <- sites_data %>%
+  count(locId, sort = TRUE)
+#count species richness per site
+richness <- sites_data %>%
+  group_by(locId) %>%
+  summarise(species_richness = n_distinct(comName))
+#formualte bargraph
+ggplot(richness, aes(x = locId, y = species_richness, fill = locId)) +
+  geom_col() +
+  theme_minimal() +
+  labs(x = "Site ID", y = "Number of Species",
+       title = "Species Richness Across Sites") +
+  guides(fill = "none")
+
+#count species per site
+species_site <- sites_data %>%
+  count(locId, comName)
+#heatmap?
+ggplot(species_site, aes(x = locId, y = comName, fill = n)) +
+  geom_tile() +
+  theme_minimal() +
+  labs(x = "Site", y = "Species", fill = "Sightings",
+       title = "Bird Species Across Sites") +
+  theme(axis.text.y = element_text(size = 6))
+
+#graph the species sightings across all locations
+ggplot(species_site, aes(x = locId, y = comName, fill = n)) +
+  geom_tile() +
+  theme_minimal() +
+  labs(
+    x = "Site ID",
+    y = "Species",
+    title = "Bird Species Across Sites",
+    caption = "Source: eBird Cornell Lab of Ornithology field observations; Each cell shows the number of sightings of a species at a given site"
+  ) +
+  theme(
+    axis.text.y = element_text(size = 6),
+    legend.position = "none",                 # removes legend like your bar chart
+    plot.caption = element_text(size = 8, hjust = 1)
+  )
+
+ggplot(species_site, aes(x = locId, y = comName, fill = n)) +
+  geom_tile() +
+  theme_minimal() +
+  labs(
+    x = "Site",
+    y = "Species",
+    title = "Bird Species Across Sites",
+    caption = "Source: ebird - Cornell Lab of Ornithology public field observations, each bar represents a species sighting, 
+    n = one bird observed"
+  ) +
+  scale_x_discrete(labels = c(
+    "L166161" = "L166161 – Trustom Pond NWR",
+    "L1458029" = "L1458029 – The Monastert - Cumberland",
+    "L13276170" = "L13276170 - Private Residence - Narragansett", #rename LOC_ID to include actual sight names
+  )) +
+  theme(axis.text.y = element_text(size = 6)) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+ #edit the x-xis so text doesn't overlap
+  theme(
+    plot.caption = element_text(hjust = 0.5)
+  ) #center the caption
+
+#clean summary - top species per site
+sites_data %>%
+  group_by(locId, comName) %>%
+  summarise(total = n(), .groups = "drop") %>%
+  arrange(locId, desc(total))
+
+#add in Succotash Marsh (L357310) to my existing data set
+sites_data <- sites_data %>%
+  filter(locId %in% c("L166161", "L1458029", "L13276170", "L393285"))
+
+species_site
+view(species_site)
+
+#add LOC_ID into my existing site data
+site_data <- recent %>% filter(locId == "L357310")
+
+#add it into data set that has all LOC_IDs combined 
+species_site <- recent %>%
+  filter(locId %in% c("L166161", "L1458029", "L13276170", "L357310")) %>%
+  count(locId, comName)
+view(species_site)
+
+#updated graph with new location added 
+ggplot(species_site, aes(x = locId, y = comName, fill = n)) +
+  geom_tile() +
+  theme_minimal() +
+  labs(
+    x = "Site",
+    y = "Species",
+    title = "Bird Species Across Sites",
+    caption = "Source: eBird - Cornell Lab of Ornithology public field observations. 
+    Each tile represents a recorded sighting (n = number of individuals observed)."
+  ) +
+  scale_x_discrete(labels = c(
+    "L166161" = "Trustom Pond NWR",
+    "L1458029" = "The Monastery - Cumberland",
+    "L13276170" = "Private Residence - Narragansett",
+    "L357310" = "Succotash Marsh - Washington RI"
+  )) +
+  theme(
+    axis.text.y = element_text(size = 6),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.caption = element_text(hjust = 0.5)
+  )

@@ -1,0 +1,15 @@
+L166161 <- recent_ebird %>%
+  filter(locId == "L166161")
+#species observed
+unique(L166161$comName)
+#number of sightings
+L166161 %>%
+  count(comName, sort = TRUE)
+#color coordinated bar graph
+ggplot(L166161, aes(x = comName, fill = comName)) +
+  geom_bar() +
+  theme_minimal() +
+  labs(x = "Species", y = "Number of Records",
+       title = "Bird Sightings at L166161 - Trustome Pond NWR") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  guides(fill = "none")
