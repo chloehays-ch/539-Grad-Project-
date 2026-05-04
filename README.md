@@ -17,3 +17,6 @@ Date of Observations: Recent
 -Data summarizing using dplyr
 -Pushed data to github repository using R terminal
 -Obtained data throuh rebird package
+
+## AI Usage Statement ##
+The AI software ChatGPT was utilized to support my coding in R (making it clean and testable), to troubleshoot GitHub issues when my files in R did not want to push to my repository, and to help edit my code to add an additional LOC_ID into my existing graph. All data analysis and write-ups were written by myself without the use of Artificial Intelligence. 
