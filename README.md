@@ -7,6 +7,9 @@ the species that are being observed. I chose these four sights because they were
 will be surveying over the summer, with the exception of a private residence that I was interested in 
 analyzing to see how species sighted compared to other public sights. 
 
+## Purpose of Analysis ##
+What species are being spotted at certain locations, i.e. are the same birds in backyards being
+sighted at wildlife refuges, more urban environments, etc.? 
 ## Data ##
 Source: eBird, Cornell Lab of Ornithology
 Date of Observations: Recent
