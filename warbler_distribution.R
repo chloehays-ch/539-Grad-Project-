@@ -32,7 +32,7 @@ nrow(warblers)
 
 ##Time to visualize our data##
 
-#let's make a graph that shows seasonal activiy of warblers 
+#let's make a graph that shows seasonal activiTy of warblers 
 warblers %>% #we are taking the warbler dataset and piping (passing) it to the next function
   ggplot(aes(x = obsDt)) + #initialize plot
   geom_density(fill = "steelblue", alpha = 0.5) + #creates a smooth curve showing density over time
@@ -47,26 +47,33 @@ warblers %>% #we are taking the warbler dataset and piping (passing) it to the n
 
 #We can also graph this so that we're looking at the different species of warbler that were sighted overtime
 
-ggplot(warblers, aes(x = obsDt, y = comName, color = obsDt)) + #this is our dataset and the variable we will be plotting
-  geom_point(alpha = 0.7, size = 2) + #geom_point handles our points on the graph
-  scale_color_gradientn(  #this code handles assigning different colors to different dates
+ggplot(warblers, aes(x = obsDt, y = comName, color = obsDt)) + # this is our dataset and the variable we will be plotting
+  geom_point(alpha = 0.7, size = 2) + # geom_point handles our points on the graph
+  scale_color_gradientn(  # this code handles assigning different colors to different dates
     colors = c("navy", "skyblue", "orange", "red"),
     name = "Observation Date"
   ) +
-  labs( #adds the labels onto the graph
-    title = "Warbler observations over time",
+  labs( # adds the labels onto the graph
+    title = "Warbler Observations Over Time",
     x = "Date",
-    y = "Species"
+    y = "Species",
+    caption = "Figure 1. Warbler observations from eBird data in Rhode Island. 
+    Color gradient represents progression of time, from early (navy) to late season (red)."
   ) +
   theme_minimal() #cleans up the graph
 
 # now let's make a graph of the spacial distribution of warblers
-
 ggplot(warblers, aes(x = lng, y = lat, color = comName)) +
   geom_point(alpha = 0.7) +
   labs(
     title = "Spatial Distribution of Warbler Observations",
     x = "Longitude",
-    y = "Latitude"
+    y = "Latitude",
+    color = "Common name",
+    caption = "Figure 2. Spatial distribution of warbler observations in Rhode Island based on eBird citizen science data. 
+    Points represent individual sightings, and colors indicate different warbler species."
   ) +
-  theme_minimal()
+  theme_minimal() +
+  theme(
+    plot.caption = element_text(hjust = 0.1)
+  )
