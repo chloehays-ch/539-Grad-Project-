@@ -6,7 +6,7 @@ Bird species observations across four field sites in Rhode Island
 Warbler species distributions across the state
 Shorebird distributions across Rhode Island coastal habitats
 
-The goal of this project is to compare bird species occurrence among different habitat types, including wildlife refuges, urban environments, and private residential properties. These locations were selected because they are sites that will be surveyed during upcoming summer fieldwork.
+The goal of this project is to compare bird species occurrence among different habitat types, including wildlife refuges, urban environments, and private residential properties. These locations were selected because they are sites that will be surveyed during upcoming summer fieldwork. It also seeks to osberve the distribution of migratory bird species across Rhode Island to determine the most freqently spotted warbler and shorebird species. These species were chosen because of their extreme migratory patterns. 
 
 ## Research Questions
 What bird species are commonly observed at each site?
@@ -14,10 +14,10 @@ Do backyard observations differ from observations at public wildlife refuges?
 How do warbler and shorebird distributions vary across Rhode Island?
 
 ## Data Source
-Data were obtained from the eBird database using the rebird R package.
-Source: eBird, Cornell Lab of Ornithology
-Observation Period: Recent sightings collected within the past year
-Location: Rhode Island, USA
+Data was obtained from the eBird database using the rebird R package.
+- Source: eBird, Cornell Lab of Ornithology
+- Observation Period: Recent sightings collected within the past year
+- Location: Rhode Island, USA
 
 ## Methods
 This project was completed in RStudio using the following tools and packages:
@@ -64,7 +64,7 @@ All data interpretation, ecological analysis, and written conclusions were compl
 
 ## Results
 Wildlife refuges had higher species abundance than urbanized and residential environments. Warblers have a larger distribution
-than shorebirds. 
+than shorebirds. With the Northern Yellow Warbler being the most frequently spotted warbler species. 
 
 ## References
 Cornell Lab of Ornithology. eBird Basic Dataset.https://ebird.org
