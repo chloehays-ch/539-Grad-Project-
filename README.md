@@ -1,6 +1,6 @@
-##539 Graduate Project – eBird Data Analysis##
-Chloe Hays
-##Project Overview##
+# 539 Graduate Project – eBird Data Analysis 
+## Chloe Hays
+## Project Overview 
 This project analyzes bird sighting observations collected from the eBird database, developed by the Cornell Lab of Ornithology. The analysis focuses on:
 Bird species observations across four field sites in Rhode Island
 Warbler species distributions across the state
@@ -8,18 +8,18 @@ Shorebird distributions across Rhode Island coastal habitats
 
 The goal of this project is to compare bird species occurrence among different habitat types, including wildlife refuges, urban environments, and private residential properties. These locations were selected because they are sites that will be surveyed during upcoming summer fieldwork.
 
-##Research Questions##
+## Research Questions
 What bird species are commonly observed at each site?
 Do backyard observations differ from observations at public wildlife refuges?
 How do warbler and shorebird distributions vary across Rhode Island?
 
-##Data Source##
+## Data Source
 Data were obtained from the eBird database using the rebird R package.
 Source: eBird, Cornell Lab of Ornithology
 Observation Period: Recent sightings collected within the past year
 Location: Rhode Island, USA
 
-##Methods##
+## Methods
 This project was completed in RStudio using the following tools and packages:
 -rebird for downloading eBird observation data
 -dplyr for data cleaning and summarization
@@ -34,7 +34,7 @@ Analyses included:
 Repository Structure
 ebird_analysis.R           # Downloads and prepares eBird dataL166161.R                  # Site-specific analysisL1458029.R                 # Site-specific analysisL13276170.R                # Site-specific analysisAll_Sites.R                # Combined analysis across all siteswarbler_distribution.R     # Warbler distribution analysisshorebird_distribution.R   # Shorebird distribution analysis
 
-##Reproducibility##
+## Reproducibility
 Run the scripts in the following order:
 (1)ebird_analysis.R
 (2)L166161.R
@@ -54,7 +54,7 @@ The project generates:
 -Site comparison visualizations
 -Summary statistics of observed bird species
 
-##AI Usage Statement##
+## AI Usage Statement
 ChatGPT was used to assist with:
 -troubleshooting R and GitHub issues,
 -improving code organization and readability
@@ -62,7 +62,7 @@ ChatGPT was used to assist with:
 
 All data interpretation, ecological analysis, and written conclusions were completed independently by the author.
 
-##Results##
+## Results
 Wildlife refuges had higher species abundance than urbanized and residential environments. Warblers have a larger distribution
 than shorebirds. 
 
