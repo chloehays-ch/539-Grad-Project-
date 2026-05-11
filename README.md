@@ -2,9 +2,9 @@
 ## Chloe Hays
 ## Project Overview 
 This project analyzes bird sighting observations collected from the eBird database, developed by the Cornell Lab of Ornithology. The analysis focuses on:
-Bird species observations across four field sites in Rhode Island
-Warbler species distributions across the state
-Shorebird distributions across Rhode Island coastal habitats
+- Bird species observations across four field sites in Rhode Island
+- Warbler species distributions across the state
+- Shorebird distributions across Rhode Island coastal habitats
 
 The goal of this project is to compare bird species occurrence among different habitat types, including wildlife refuges, urban environments, and private residential properties. These locations were selected because they are sites that will be surveyed during upcoming summer fieldwork. It also seeks to osberve the distribution of migratory bird species across Rhode Island to determine the most freqently spotted warbler and shorebird species. These species were chosen because of their extreme migratory patterns. 
 
